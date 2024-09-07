@@ -50,14 +50,14 @@
         <p class="hidden">Question <span class="current"></span> of 10</p>
         <div class="question">
           <h1>
-            Welcome to the <br />
+            <span>Welcome to the</span> <br />
             Frontend quiz!
           </h1>
           <p></p>
         </div>
         <div class="progress_bar">
           <p>Pick a subject to get started!</p>
-          <div class="bar hidden" data-value="5">
+          <div class="bar hidden" data-value="1">
             <div class="current"></div>
           </div>
         </div>
@@ -89,23 +89,39 @@
         </div>
       </div>
       <div class="answers hidden">
-        <div class="answer">
-          <div class="first">A</div>
-          <p></p>
+        <div class="answer first">
+          <div class="choice">
+            <p>A</p>
+            <p></p>
+          </div>
+          <div class="result"></div>
         </div>
-        <div class="answer">
-          <div class="second">B</div>
-          <p></p>
+        <div class="answer second">
+          <div class="choice">
+            <p>B</p>
+            <p></p>
+          </div>
+          <div class="result"></div>
         </div>
-        <div class="answer">
-          <div class="third">C</div>
-          <p></p>
+        <div class="answer third">
+          <div class="choice">
+            <p>C</p>
+            <p></p>
+          </div>
+          <div class="result"></div>
         </div>
-        <div class="answer">
-          <div class="fourth">D</div>
-          <p></p>
+        <div class="answer fourth">
+          <div class="choice">
+            <p>D</p>
+            <p></p>
+          </div>
+          <div class="result"></div>
         </div>
         <button class="submit">Submit answer</button>
+        <div class="error hidden">
+          <img src="assets/images/icon-error.svg" alt="" />
+          <p>Please select an answer</p>
+        </div>
       </div>
     </main>
   </body>
