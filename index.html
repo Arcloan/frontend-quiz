@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Frontend Mentor | Frontend quiz app</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="selected_topic">
+          <div class="img_selected"></div>
+          <p></p>
+        </div>
+        <div class="light-dark-switch-container">
+          <label for="toggle">
+            <img
+              src="assets/images/icon-sun-dark.svg"
+              alt="light switch toggle"
+            />
+          </label>
+          <label class="toggle" for="toggle">
+            <input
+              type="checkbox"
+              name="toggle"
+              id="toggle"
+              class="toggle__input"
+            />
+
+            <span class="toggle__display" hidden> </span>
+          </label>
+          <label for="toggle">
+            <img
+              src="assets/images/icon-moon-dark.svg"
+              alt="dark switch toggle"
+            />
+          </label>
+        </div>
+      </header>
+      <div class="question_box">
+        <p class="hidden">Question <span class="current"></span> of 10</p>
+        <div class="question">
+          <h1>
+            Welcome to the <br />
+            Frontend quiz!
+          </h1>
+          <p></p>
+        </div>
+        <div class="progress_bar">
+          <p>Pick a subject to get started!</p>
+          <div class="bar hidden" data-value="5">
+            <div class="current"></div>
+          </div>
+        </div>
+      </div>
+      <div class="topics">
+        <div class="topic">
+          <div class="html_icon">
+            <img src="assets/images/icon-html.svg" alt="" />
+          </div>
+          <p>HTML</p>
+        </div>
+        <div class="topic">
+          <div class="css_icon">
+            <img src="assets/images/icon-css.svg" alt="" />
+          </div>
+          <p>CSS</p>
+        </div>
+        <div class="topic">
+          <div class="js_icon">
+            <img src="assets/images/icon-js.svg" alt="" />
+          </div>
+          <p>Javascript</p>
+        </div>
+        <div class="topic">
+          <div class="accessibility_icon">
+            <img src="assets/images/icon-accessibility.svg" alt="" />
+          </div>
+          <p>Accessibility</p>
+        </div>
+      </div>
+      <div class="answers hidden">
+        <div class="answer">
+          <div class="first">A</div>
+          <p></p>
+        </div>
+        <div class="answer">
+          <div class="second">B</div>
+          <p></p>
+        </div>
+        <div class="answer">
+          <div class="third">C</div>
+          <p></p>
+        </div>
+        <div class="answer">
+          <div class="fourth">D</div>
+          <p></p>
+        </div>
+        <button class="submit">Submit answer</button>
+      </div>
+    </main>
+  </body>
+</html>
