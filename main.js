@@ -14,8 +14,6 @@ async function startQuiz(e) {
         topic = e.target.querySelector("p").textContent;
     }
     
-
-
     let question = document.querySelector(".question");
     question.querySelector("h1").remove();
     let questionSlot = question.querySelector("p");
@@ -25,6 +23,7 @@ async function startQuiz(e) {
     let curr_number = document.querySelector(".current_number");
     
     let progressBar = document.querySelector(".progress_bar");
+    progressBar.removeAttribute("data-initial");
     progressBar.querySelector("p").remove();
     let bar = document.querySelector(".bar");
     bar.classList.remove("hidden");
@@ -71,6 +70,10 @@ function selectTopic(topic, url) {
 }
 
 function updateQuiz(questionNumber, question, bar, curr_number, questions, curr_score) {
+    if (curr_number == 10) {
+        showResult();
+        return;
+    }
     updateQuestionNumber(questionNumber, curr_number + 1);
     updateQuestion(question, questions[curr_number]);
     updateBar(bar, String((curr_number + 1) * 10) + "%");
@@ -153,7 +156,9 @@ function checkAnswer(e) {
         e.target.textContent = "Next Question";
         return;
     }
-    updateQuiz(global_controller.questionNumber, global_controller.questionSlot, global_controller.progress, global_controller.currNumber, global_controller.questions, global_controller.score);
+    updateQuiz(global_controller.questionNumber, global_controller.questionSlot,
+        global_controller.progress, global_controller.currNumber,
+        global_controller.questions, global_controller.score);
     document.querySelector(".submit").textContent = "Submit answer";
     document.querySelectorAll(".result").forEach((el) => {
         el.childNodes.forEach((ch) => {
@@ -164,6 +169,8 @@ function checkAnswer(e) {
     document.querySelectorAll(".answer").forEach((el) => {
         el.classList.remove("green_border");
         el.classList.remove("red_border");
+        el.querySelector(".choice p:first-child").classList.remove("green_background");
+        el.querySelector(".choice p:first-child").classList.remove("red_background");
         el.removeAttribute("data-selected");
     })
     document.querySelector(".error").classList.add("hidden");
@@ -182,11 +189,13 @@ function updateScore(ans, curr_ans) {
     let iconSlot = selected.querySelector(".result");
     if (ans == curr_ans) {
         selected.classList.add("green_border");
+        selected.querySelector(".choice p:first-child").classList.add("green_background");
         global_controller.score = global_controller.score + 1;
         iconSlot.appendChild(correct_icon);
     }
     else {
         selected.classList.add("red_border");
+        selected.querySelector(".choice p:first-child").classList.add("red_background");
         iconSlot.appendChild(error_icon);
         let correct_slot;
         let answers = document.querySelectorAll(".answer");
@@ -200,3 +209,23 @@ function updateScore(ans, curr_ans) {
     global_controller.currNumber = global_controller.currNumber + 1;
 
 }
+
+function showResult() {
+    let question = document.querySelector(".question_box");
+    let answers = document.querySelector(".answers");
+    let result = document.querySelector(".result_container");
+
+    question.classList.add("hidden");
+    answers.classList.add("hidden");
+
+    result.classList.remove("hidden");
+    let topic = document.querySelector(".selected_topic").cloneNode(true);
+    let score_container = document.querySelector(".result_score");
+    let score = document.querySelector(".score");
+    score.textContent = global_controller.score;
+    score_container.insertBefore(topic, score);
+}
+
+document.querySelector(".reset").addEventListener("click", (e) => {
+    e.target.querySelector("a").click();
+})

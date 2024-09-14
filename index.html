@@ -47,83 +47,100 @@
           </label>
         </div>
       </header>
-      <div class="question_box">
-        <p class="hidden curr_question_number">
-          Question <span class="current_number"></span> of 10
-        </p>
-        <div class="question">
-          <h1>
-            <span>Welcome to the</span> <br />
-            Frontend quiz!
-          </h1>
-          <p></p>
-        </div>
-        <div class="progress_bar">
-          <p>Pick a subject to get started!</p>
-          <div class="bar hidden" data-value="1">
-            <div class="current_bar"></div>
-          </div>
-        </div>
-      </div>
-      <div class="topics">
-        <div class="topic">
-          <div class="html_icon">
-            <img src="assets/images/icon-html.svg" alt="" />
-          </div>
-          <p>HTML</p>
-        </div>
-        <div class="topic">
-          <div class="css_icon">
-            <img src="assets/images/icon-css.svg" alt="" />
-          </div>
-          <p>CSS</p>
-        </div>
-        <div class="topic">
-          <div class="js_icon">
-            <img src="assets/images/icon-js.svg" alt="" />
-          </div>
-          <p>JavaScript</p>
-        </div>
-        <div class="topic">
-          <div class="accessibility_icon">
-            <img src="assets/images/icon-accessibility.svg" alt="" />
-          </div>
-          <p>Accessibility</p>
-        </div>
-      </div>
-      <div class="answers hidden">
-        <div class="answer first">
-          <div class="choice">
-            <p>A</p>
+      <div class="wrapper">
+        <div class="question_box">
+          <p class="hidden curr_question_number">
+            Question <span class="current_number"></span> of 10
+          </p>
+          <div class="question">
+            <h1>
+              <span>Welcome to the</span> <br />
+              Frontend quiz!
+            </h1>
             <p></p>
           </div>
-          <div class="result"></div>
-        </div>
-        <div class="answer second">
-          <div class="choice">
-            <p>B</p>
-            <p></p>
+          <div class="progress_bar" data-initial="true">
+            <p>Pick a subject to get started!</p>
+            <div class="bar hidden" data-value="1">
+              <div class="current_bar"></div>
+            </div>
           </div>
-          <div class="result"></div>
         </div>
-        <div class="answer third">
-          <div class="choice">
-            <p>C</p>
-            <p></p>
+        <div class="topics">
+          <div class="topic">
+            <div class="html_icon">
+              <img src="assets/images/icon-html.svg" alt="" />
+            </div>
+            <p>HTML</p>
           </div>
-          <div class="result"></div>
-        </div>
-        <div class="answer fourth">
-          <div class="choice">
-            <p>D</p>
-            <p></p>
+          <div class="topic">
+            <div class="css_icon">
+              <img src="assets/images/icon-css.svg" alt="" />
+            </div>
+            <p>CSS</p>
           </div>
-          <div class="result"></div>
+          <div class="topic">
+            <div class="js_icon">
+              <img src="assets/images/icon-js.svg" alt="" />
+            </div>
+            <p>JavaScript</p>
+          </div>
+          <div class="topic">
+            <div class="accessibility_icon">
+              <img src="assets/images/icon-accessibility.svg" alt="" />
+            </div>
+            <p>Accessibility</p>
+          </div>
         </div>
-        <button class="submit">Submit answer</button>
-        <div class="error hidden">
-          <img src="assets/images/icon-error.svg" alt="" />
-          <p>Please select an answer</p>
+        <div class="answers hidden">
+          <div class="answer first">
+            <div class="choice">
+              <p>A</p>
+              <p></p>
+            </div>
+            <div class="result"></div>
+          </div>
+          <div class="answer second">
+            <div class="choice">
+              <p>B</p>
+              <p></p>
+            </div>
+            <div class="result"></div>
+          </div>
+          <div class="answer third">
+            <div class="choice">
+              <p>C</p>
+              <p></p>
+            </div>
+            <div class="result"></div>
+          </div>
+          <div class="answer fourth">
+            <div class="choice">
+              <p>D</p>
+              <p></p>
+            </div>
+            <div class="result"></div>
+          </div>
+          <button class="submit">Submit answer</button>
+          <div class="error hidden">
+            <img src="assets/images/icon-error.svg" alt="" />
+            <p>Please select an answer</p>
+          </div>
+        </div>
+        <div class="result_container hidden">
+          <h2>
+            Quiz completed <br />
+            <span class="bold">You scored...</span>
+          </h2>
+          <div class="score_container">
+            <div class="result_score">
+              <p class="score"></p>
+              <p>Out of 10</p>
+            </div>
+            <button class="reset">
+              <a href="/">Play again</a>
+            </button>
+          </div>
         </div>
       </div>
     </main>
