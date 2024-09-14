@@ -229,3 +229,34 @@ function showResult() {
 document.querySelector(".reset").addEventListener("click", (e) => {
     e.target.querySelector("a").click();
 })
+
+document.querySelector('#toggle').addEventListener("click", (e) => {
+    let img_container = document.querySelector(".light-dark-switch-container");
+    if (! document.body.classList.contains("darkmode")) {
+        document.body.classList.add("darkmode");
+        let first_image = img_container.querySelector("label img");
+        let path= first_image.src.split("/");
+        path.pop();
+        path.push("icon-sun-light.svg");
+        first_image.src = path.join("/");
+        let second_image = img_container.querySelector('label:not(:first-child) img');
+        let second_path = second_image.src.split("/");
+        second_path.pop();
+        second_path.push("icon-moon-light.svg");
+        second_image.src = second_path.join("/");
+    }
+    else {
+        document.body.classList.remove("darkmode");
+        let first_image = img_container.querySelector("label img");
+        let path= first_image.src.split("/");
+        path.pop();
+        path.push("icon-sun-dark.svg");
+        first_image.src = path.join("/");
+        let second_image = img_container.querySelector('label:not(:first-child) img');
+        let second_path = second_image.src.split("/");
+        second_path.pop();
+        second_path.push("icon-moon-dark.svg");
+        second_image.src = second_path.join("/");
+    }
+    
+})

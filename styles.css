@@ -109,6 +109,7 @@
   --white: hsl(0, 0%, 100%);
   --green: hsl(151, 70%, 50%);
   --red: hsl(0, 82%, 63%);
+
 }
 
 *,
@@ -125,14 +126,27 @@ body {
   padding: 1rem;
   font-family: "Rubik";
   background-color: var(--grey);
+  min-height: 100svh;
   background-image: url(assets/images/pattern-background-mobile-light.svg);
+  background-repeat: no-repeat;
+
+  &.darkmode {
+    background-image: url(assets/images/pattern-background-mobile-dark.svg);
+  }
 
   @media (min-width : 600px) {
     background-image: url(assets/images/pattern-background-tablet-light.svg);
+    &.darkmode {
+      background-image: url(assets/images/pattern-background-tablet-dark.svg);
+    }
   }
 
   @media (min-width : 1000px) {
+    background-size: cover;
     background-image: url(assets/images/pattern-background-desktop-light.svg);
+    &.darkmode {
+      background-image: url(assets/images/pattern-background-desktop-dark.svg);
+    }
   }
 }
 
@@ -292,7 +306,7 @@ header {
   border-width: 2px;
   border-color: var(--purple);
 
-  & .choice >:first-child {
+  & .choice >:first-child:first-child {
     background-color: var(--purple);
     color: var(--white);
   }
@@ -316,22 +330,6 @@ header {
   align-items: center;
   gap: 0.5rem;
   color: var(--red);
-}
-
-.green_border {
-  border-color: var(--green);
-}
-
-.red_border {
-  border-color: var(--red);
-}
-
-.green_background.green_background.green_background {
-  background-color: var(--green);
-}
-
-.red_background.red_background.red_background {
-  background-color: var(--red);
 }
 
 .topic, .topic *, .answer, .answer *, button {
@@ -463,6 +461,7 @@ header {
   .reset {
     padding: 1rem;
     border-radius: 1rem;
+    font-weight: bold;
   }
 
   .result_container h2 {
@@ -473,6 +472,100 @@ header {
   .score {
     text-align: center;
   }
+}
+
+body[class="darkmode"] {
+  background-color: var(--medium-grey);
+  color: var(--white);
+
+  & .selected_topic p {
+    color: var(--white);
+  }
+
+  & .question {
+    color: var(--white);
+  }
+
+  & .question_box h1 span {
+    color: var(--white);
+  }
+
+  & .bar {
+    background-color: hsl(215, 27%, 38%);
+    border: hsl(215, 27%, 38%);
+  }
+
+  & .progress_bar p {
+    color: var(--grey);
+  }
+
+  & :is(.topic, .answer) {
+    background-color: hsl(215, 27%, 38%);
+    border-color: hsl(215, 27%, 38%);
+  }
+
+  & :is([data-selected]) {
+    border-color: var(--purple);
+  }
+
+  & .answer:hover {
+    
+    & .choice p:first-child {
+      color: var(--purple);
+      background-color: hsl(277, 91%, 95%);
+    }
+  }
+
+  & .question p {
+    color: var(--white);
+  }
+
+  & .curr_question_number {
+    color: var(--grey);
+  }
+
+  & .choice p:first-child {
+    background-color: var(--grey);
+    color: var(--ligthest-grey);
+  }
+
+  & .submit:is(:hover, :focus-visible) {
+    background-color: hsl(277, 91%, 70%);
+    opacity: 1;
+  }
+
+  & .result_container h2 {
+    color: var(--white);
+  }
+
+  & .score_container {
+    color: var(--white);
+  }
+
+  & .result_score {
+    background-color: hsl(215, 27%, 38%);
+    color: var(--white);
+  }
+
+  & .result_score .score {
+    color: var(--white);
+  }
+}
+
+.green_border.green_border.green_border {
+  border-color: var(--green);
+}
+
+.red_border.red_border.red_border {
+  border-color: var(--red);
+}
+
+.green_background.green_background.green_background.green_background {
+  background-color: var(--green);
+}
+
+.red_background.red_background.red_background.red_background {
+  background-color: var(--red);
 }
 
 .hidden {
